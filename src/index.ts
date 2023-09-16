@@ -1,13 +1,12 @@
 import express from "express";
+import { config } from "./config/config.js";
 
 const app = express();
-const port = 3000;
 
-app.get("/", (req, res) => {
-  console.log(req.userId);
+app.get("/", (_, res) => {
   res.send("Hello World!");
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(config.server.port, () => {
+  console.log(`🚀 API: ${config.server.host}:${config.server.port}/`);
 });
